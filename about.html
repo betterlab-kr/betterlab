@@ -2958,17 +2958,17 @@
 
         <div style="background: white; padding: 35px 30px; border: 1px solid #e5e7eb; border-top: none;">
           <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 24px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #10b981;">
-            <p style="margin: 0 0 12px 0; font-size: 16px; color: #064e3b;">안녕하세요, <strong style="color: #059669;">\${form.name.value}</strong>님! 👋</p>
+            <p style="margin: 0 0 12px 0; font-size: 16px; color: #064e3b;">안녕하세요, <strong style="color: #059669;">${form.name.value}</strong>님! 👋</p>
             <p style="margin: 0; color: #065f46; line-height: 1.7; font-size: 14px;">정책자금 무료진단 신청이 정상적으로 접수되었습니다.<br>빠른 시일 내 전문 상담사가 연락드리겠습니다.</p>
           </div>
 
           <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 24px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);">
             <h3 style="color: white; margin: 0 0 18px 0; font-size: 16px; font-weight: 600;">📋 접수 내용</h3>
             <table style="width: 100%; color: white; font-size: 14px; border-collapse: separate; border-spacing: 0 8px;">
-              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; width: 40%;">🏢 기업명</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">\${form.company.value}</td></tr>
-              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px;">📞 연락처</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">\${form.phone.value}</td></tr>
-              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px;">💰 희망자금규모</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">\${form.amount.value || '미선택'}</td></tr>
-              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px;">⏰ 통화가능시간</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">\${form.consultTime.value}</td></tr>
+              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; width: 40%;">🏢 기업명</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">${form.company.value}</td></tr>
+              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px;">📞 연락처</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">${form.phone.value}</td></tr>
+              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px;">💰 희망자금규모</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">${form.amount.value || '미선택'}</td></tr>
+              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px;">⏰ 통화가능시간</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">${form.consultTime.value}</td></tr>
             </table>
           </div>
 
@@ -3006,39 +3006,39 @@
           <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 20px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #10b981;">
             <h3 style="color: #064e3b; margin: 0 0 15px 0; font-size: 18px; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">📋 기업 정보</h3>
             <table style="width: 100%;">
-              <tr><td style="padding: 8px 0; color: #065f46; width: 40%; white-space: nowrap;">🏢 기업명</td><td style="font-weight: 600; color: #064e3b;">\${form.company.value}</td></tr>
-              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📄 사업자번호</td><td style="color: #374151;">\${form.bizno.value}</td></tr>
-              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📍 지역</td><td style="color: #374151;">\${form.region.value}</td></tr>
-              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">🏭 업종</td><td style="color: #374151;">\${form.industry.value || '미입력'}</td></tr>
-              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📅 설립연도</td><td style="color: #374151;">\${form.founded.value || '미입력'}</td></tr>
-              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📊 전년도매출</td><td style="color: #374151;">\${form.revenue.value || '미입력'}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; width: 40%; white-space: nowrap;">🏢 기업명</td><td style="font-weight: 600; color: #064e3b;">${form.company.value}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📄 사업자번호</td><td style="color: #374151;">${form.bizno.value}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📍 지역</td><td style="color: #374151;">${form.region.value}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">🏭 업종</td><td style="color: #374151;">${form.industry.value || '미입력'}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📅 설립연도</td><td style="color: #374151;">${form.founded.value || '미입력'}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📊 전년도매출</td><td style="color: #374151;">${form.revenue.value || '미입력'}</td></tr>
             </table>
           </div>
 
           <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 20px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #10b981;">
             <h3 style="color: #064e3b; margin: 0 0 15px 0; font-size: 18px; border-bottom: 2px solid #10b981; padding-bottom: 8px; display: inline-block;">👤 담당자 정보</h3>
             <table style="width: 100%;">
-              <tr><td style="padding: 8px 0; color: #065f46; width: 40%; white-space: nowrap;">👤 이름</td><td style="color: #374151;">\${form.name.value}</td></tr>
-              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📞 연락처</td><td style="color: #064e3b; font-weight: 600;">\${form.phone.value}</td></tr>
-              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">✉️ 이메일</td><td style="color: #374151;">\${form.email.value}</td></tr>
-              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">⏰ 통화가능시간</td><td style="color: #059669; font-weight: 600;">\${form.consultTime.value}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; width: 40%; white-space: nowrap;">👤 이름</td><td style="color: #374151;">${form.name.value}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">📞 연락처</td><td style="color: #064e3b; font-weight: 600;">${form.phone.value}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">✉️ 이메일</td><td style="color: #374151;">${form.email.value}</td></tr>
+              <tr><td style="padding: 8px 0; color: #065f46; white-space: nowrap;">⏰ 통화가능시간</td><td style="color: #059669; font-weight: 600;">${form.consultTime.value}</td></tr>
             </table>
           </div>
 
           <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 20px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);">
             <h3 style="color: white; margin: 0 0 15px 0; font-size: 18px; font-weight: 600;">💰 자금 정보</h3>
             <table style="width: 100%; color: white;">
-              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; width: 40%; white-space: nowrap;">💵 희망자금규모</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 700; font-size: 16px;">\${form.amount.value || '미선택'}</td></tr>
-              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; white-space: nowrap; margin-top: 8px;">🔖 자금종류</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0;"><strong>\${Array.from(fundTypes).map(cb => cb.value).join(', ')}</strong></td></tr>
+              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; width: 40%; white-space: nowrap;">💵 희망자금규모</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 700; font-size: 16px;">${form.amount.value || '미선택'}</td></tr>
+              <tr><td style="padding: 10px 15px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; white-space: nowrap; margin-top: 8px;">🔖 자금종류</td><td style="padding: 10px 15px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0;"><strong>${Array.from(fundTypes).map(cb => cb.value).join(', ')}</strong></td></tr>
             </table>
           </div>
 
-          \${form.message.value ? \`
+          ${form.message.value ? `
           <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); padding: 20px; border-radius: 12px; border-left: 4px solid #10b981; margin-bottom: 20px;">
             <h3 style="color: #064e3b; margin: 0 0 10px 0; font-size: 16px; font-weight: 600;">📝 문의내용</h3>
-            <p style="margin: 0; color: #374151; white-space: pre-wrap;">\${form.message.value}</p>
+            <p style="margin: 0; color: #374151; white-space: pre-wrap;">${form.message.value}</p>
           </div>
-          \` : ''}
+          ` : ''}
         </div>
 
         <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); border-radius: 0 0 16px 16px; color: white; font-size: 12px;">
