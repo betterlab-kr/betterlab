@@ -788,9 +788,9 @@
 
     <!-- 정책자금 프로세스 섹션 -->
 <style>
-/* 프로세스 섹션 */
+/* 프로세스 섹션 - 흰색 배경 (교차 패턴) */
 .fund-process-section {
-    background: linear-gradient(135deg, #0C2E21 0%, #124330 50%, #0C2E21 100%);
+    background: #ffffff;
     padding: 100px 0;
     width: 100%;
     position: relative;
@@ -804,9 +804,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(107, 168, 141, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(78, 138, 111, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 50% 20%, rgba(143, 191, 168, 0.08) 0%, transparent 40%);
+    background: radial-gradient(circle at 20% 50%, rgba(107, 168, 141, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(78, 138, 111, 0.03) 0%, transparent 50%);
     z-index: 0;
     pointer-events: none;
 }
@@ -826,30 +825,28 @@
 
 .fund-process-section .section-badge {
     display: inline-block;
-    background: rgba(107, 168, 141, 0.15);
-    color: var(--accent-light);
+    background: linear-gradient(135deg, #6BA88D 0%, #4E8A6F 100%);
+    color: #ffffff;
     padding: 8px 20px;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 20px;
-    border: 1px solid rgba(107, 168, 141, 0.3);
-    backdrop-filter: blur(10px);
-    text-shadow: 0 0 10px rgba(107, 168, 141, 0.5);
+    border: none;
+    box-shadow: 0 4px 15px rgba(107, 168, 141, 0.3);
 }
 
 .fund-process-section .section-title {
     font-size: 42px;
     font-weight: 700;
-    color: #ffffff;
+    color: #1a1a2e;
     margin-bottom: 16px;
     line-height: 1.2;
-    text-shadow: 0 0 20px rgba(107, 168, 141, 0.3);
 }
 
 .fund-process-section .section-desc {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.85);
+    color: #4a5568;
     line-height: 1.6;
 }
 
@@ -867,9 +864,8 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, rgba(107, 168, 141, 0.5), rgba(78, 138, 111, 0.2));
+    background: linear-gradient(180deg, #6BA88D 0%, #8FBFA8 100%);
     transform: translateX(-50%);
-    box-shadow: 0 0 10px rgba(107, 168, 141, 0.3);
 }
 
 /* 프로세스 아이템 */
@@ -888,7 +884,7 @@
     flex-direction: row-reverse;
 }
 
-/* 프로세스 콘텐츠 */
+/* 프로세스 콘텐츠 - 흰색 배경용 */
 .fund-process-section .process-content {
     flex: 1;
     padding: 30px;
@@ -897,12 +893,10 @@
     transition: all 0.6s ease;
     position: relative;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: #F8FAFB;
     border-radius: 16px;
-    border: 1px solid rgba(107, 168, 141, 0.2);
-    box-shadow: 0 0 30px rgba(78, 138, 111, 0.2), 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     overflow: hidden;
 }
 
@@ -913,8 +907,7 @@
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(180deg, var(--accent-light) 0%, var(--accent) 100%);
-    box-shadow: 0 0 10px rgba(107, 168, 141, 0.8);
+    background: linear-gradient(180deg, #6BA88D 0%, #4E8A6F 100%);
     transition: all 0.3s ease;
 }
 
@@ -935,39 +928,37 @@
 
 .fund-process-section .process-content:hover {
     border-color: rgba(107, 168, 141, 0.4);
-    box-shadow: 0 0 40px rgba(107, 168, 141, 0.3), 0 8px 25px rgba(78, 138, 111, 0.25);
-    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(107, 168, 141, 0.15);
+    background: #ffffff;
 }
 
 .fund-process-section .process-content:hover::before {
-    width: 8px;
-    box-shadow: 0 0 20px rgba(107, 168, 141, 1);
+    width: 6px;
 }
 
-/* 프로세스 스텝 뱃지 */
+/* 프로세스 스텝 뱃지 - 흰색 배경용 */
 .fund-process-section .process-step {
     display: inline-block;
-    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    background: linear-gradient(135deg, #6BA88D 0%, #4E8A6F 100%);
     color: #ffffff;
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 12px;
-    box-shadow: 0 0 15px rgba(107, 168, 141, 0.4);
+    box-shadow: 0 4px 10px rgba(107, 168, 141, 0.3);
 }
 
 .fund-process-section .process-title {
     font-size: 24px;
     font-weight: 700;
-    color: #ffffff;
+    color: #1a1a2e;
     margin-bottom: 12px;
-    text-shadow: 0 0 15px rgba(107, 168, 141, 0.5);
 }
 
 .fund-process-section .process-desc {
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.85);
+    color: #4a5568;
     line-height: 1.6;
     margin-bottom: 16px;
 }
@@ -987,17 +978,18 @@
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(107, 168, 141, 0.1);
+    color: #4a5568;
+    background: rgba(107, 168, 141, 0.08);
     padding: 6px 12px;
     border-radius: 20px;
-    border: 1px solid rgba(107, 168, 141, 0.2);
+    border: 1px solid rgba(107, 168, 141, 0.15);
     transition: all 0.3s ease;
 }
 
 .fund-process-section .detail-item:hover {
     background: rgba(107, 168, 141, 0.15);
     border-color: rgba(107, 168, 141, 0.3);
+    color: #1a1a2e;
     transform: translateY(-2px);
     box-shadow: 0 0 10px rgba(107, 168, 141, 0.3);
 }
@@ -3239,14 +3231,14 @@
 
         <!-- Form 섹션 - BIZEN 무료진단 신청 (에어테이블 + 워커 연동) -->
     <style>
-        /* BIZEN 색상 변수 */
+        /* BIZEN 색상 변수 - 그린 (브랜드 통일) */
         .bizen-form-section {
-            --bizen-primary: #3B82F6;
-            --bizen-primary-dark: #2563EB;
-            --bizen-primary-light: #93C5FD;
+            --bizen-primary: #6BA88D;
+            --bizen-primary-dark: #4E8A6F;
+            --bizen-primary-light: #DDEBC6;
             --bizen-accent: #8FBFA8;
-            --bizen-navy: #0a1628;
-            --bizen-navy-light: #0f2847;
+            --bizen-navy: #0C2E21;
+            --bizen-navy-light: #124330;
             --bizen-white: #FFFFFF;
             --bizen-off-white: #F8FAFB;
             --bizen-light-gray: #F3F4F6;
@@ -4290,9 +4282,9 @@
         <!-- Footer 섹션 - BIZEN -->
     <style>
         .bizen-footer {
-            --footer-navy: #0a1628;
-            --footer-navy-light: #0f2847;
-            --footer-primary: #3B82F6;
+            --footer-navy: #0C2E21;
+            --footer-navy-light: #124330;
+            --footer-primary: #6BA88D;
             --footer-accent: #8FBFA8;
             --footer-text: rgba(255, 255, 255, 0.88);
             --footer-sub-text: rgba(255, 255, 255, 0.6);
@@ -4300,7 +4292,7 @@
         }
 
         .bizen-footer {
-            background: linear-gradient(145deg, #0a1628, #0f2847);
+            background: linear-gradient(145deg, #0C2E21, #124330);
             color: #ffffff;
             padding: 60px 0 0;
             width: 100%;
