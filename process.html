@@ -1322,11 +1322,13 @@
             <p class="cta-desc" data-editable="process-cta-desc">95% 승인률의 노하우,<br class="mobile-br"> 더나은기업연구소와 함께하세요</p>
 
             <div class="cta-buttons">
-                <a href="http://pf.kakao.com/_xnKxaxfn/chat" target="_blank" rel="noopener" class="cta-btn cta-btn-primary">
+                <a href="#contact-form" class="cta-btn cta-btn-primary" onclick="scrollToContactForm(event)">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                        <rect x="9" y="3" width="6" height="4" rx="1"/>
+                        <path d="M9 12h6M9 16h6"/>
                     </svg>
-                    <span data-editable="process-cta-btn-primary">카톡으로 간편심사</span>
+                    <span data-editable="process-cta-btn-primary">빠른 간편심사</span>
                 </a>
                 <a href="tel:010-3558-4305" class="cta-btn cta-btn-secondary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1429,7 +1431,7 @@
 // CTA 버튼 - 상담 폼으로 스크롤
 function scrollToContactForm(event) {
     event.preventDefault();
-    const formSection = document.querySelector('.contact-form-section');
+    const formSection = document.querySelector('#contact-form');
     if (formSection) {
         const companyInput = formSection.querySelector('input[name="company"]');
         if (companyInput) {
