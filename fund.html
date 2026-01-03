@@ -788,9 +788,9 @@
 
     <!-- 정책자금 프로세스 섹션 -->
 <style>
-/* 프로세스 섹션 - 흰색 배경 (교차 패턴) */
+/* 프로세스 섹션 - 연한 그린 배경 (교차 패턴) */
 .fund-process-section {
-    background: #ffffff;
+    background: linear-gradient(135deg, #E8F5E9 0%, #F0F7F4 50%, #E8F5E9 100%);
     padding: 100px 0;
     width: 100%;
     position: relative;
@@ -804,8 +804,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(107, 168, 141, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(78, 138, 111, 0.03) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(107, 168, 141, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(78, 138, 111, 0.05) 0%, transparent 50%);
     z-index: 0;
     pointer-events: none;
 }
@@ -884,19 +884,20 @@
     flex-direction: row-reverse;
 }
 
-/* 프로세스 콘텐츠 - 흰색 배경용 */
+/* 프로세스 콘텐츠 - 연한 그린 배경용 */
 .fund-process-section .process-content {
-    flex: 1;
+    flex: 0 0 calc(50% - 60px);
+    max-width: calc(50% - 60px);
     padding: 30px;
     opacity: 0;
     transform: translateX(-30px);
     transition: all 0.6s ease;
     position: relative;
     z-index: 10;
-    background: #F8FAFB;
+    background: #ffffff;
     border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(107, 168, 141, 0.2);
+    box-shadow: 0 4px 20px rgba(107, 168, 141, 0.1);
     overflow: hidden;
 }
 
