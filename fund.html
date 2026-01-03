@@ -1967,17 +1967,24 @@
     }
 
     .fund-detail-section .requirement-list {
-        grid-template-columns: 1fr;
-        gap: 10px;
+        grid-template-columns: repeat(2, auto);
+        gap: 8px 12px;
+        justify-content: center;
+        display: inline-grid;
+        width: 100%;
+    }
+
+    .fund-detail-section .requirements-section {
+        text-align: center;
     }
 
     .fund-detail-section .requirement-item {
-        justify-content: center;
-        padding: 8px 0;
+        justify-content: flex-start;
+        padding: 6px 0;
     }
 
     .fund-detail-section .requirement-text {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     /* 혜택 그리드 */
