@@ -1,10 +1,10 @@
 /* ================================================
-   KPFC 한국정책자금지원센터 대시보드 CSS
+   BETTER LAB 더나은기업연구소 대시보드 CSS
    ================================================ */
 
 /* CSS Variables */
 :root {
-  /* Primary Colors - 딥 네이비 퍼플 (KPFC 브랜드) */
+  /* Primary Colors - 딥 네이비 퍼플 (BETTER LAB 브랜드) */
   --primary: #1D00AD;
   --primary-dark: #150080;
   --primary-light: #E8E5F8;
