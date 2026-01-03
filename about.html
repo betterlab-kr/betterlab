@@ -2886,7 +2886,7 @@
                             <div class="privacy-checkbox">
                                 <input type="checkbox" id="betterlabPrivacy" name="privacy" required>
 <label for="betterlabPrivacy">개인정보 수집·이용에 동의합니다 <span class="required">*</span><br class="mobile-br">
-                            <span class="privacy-detail-link" onclick="toggleBizenPrivacy()">내용보기</span></label>
+                            <span class="privacy-detail-link" onclick="toggleBetterlabPrivacy()">내용보기</span></label>
                             </div>
                             <div class="privacy-content" id="betterlabPrivacyContent">
                                 <p>1. 수집항목: 기업명, 사업자번호, 대표자명, 연락처, 문의내용</p>
@@ -3120,7 +3120,7 @@
     document.getElementById('betterlabConsultForm').addEventListener('submit', handleBizenSubmit);
 
     // 개인정보 동의 토글
-    function toggleBizenPrivacy() {
+    function toggleBetterlabPrivacy() {
         const content = document.getElementById('betterlabPrivacyContent');
         content.classList.toggle('show');
     }
