@@ -1,21 +1,28 @@
 /* ================================================
-   KPFC 한국정책자금지원센터 메인 사이트 CSS
-   정책자금 컨설팅 홈페이지
+   더나은기업연구소 (BETTER LAB) 메인 사이트 CSS
+   기업 컨설팅 홈페이지
    ================================================ */
 
-/* CSS Variables - KPFC Brand Colors (#1D00AD 기반) */
+/* CSS Variables - BETTER LAB Brand Colors (Green 기반) */
 :root {
-  /* Primary Colors - 딥 네이비 퍼플 (메인 브랜드) */
-  --primary: #1D00AD;
-  --primary-dark: #150080;
-  --primary-light: #E8E5F8;
-  --primary-hover: #2E1AE0;
+  /* Primary Colors - 다크 포레스트 그린 (메인 브랜드) */
+  --primary: #124330;
+  --primary-dark: #0C2E21;
+  --primary-light: #1A5C42;
+  --primary-hover: #1A5C42;
+  --primary-pale: #E8F0EC;
 
-  /* Accent Colors - 브라이트 인디고 (CTA, 강조) */
-  --accent: #4338CA;
-  --accent-dark: #3730A3;
-  --accent-light: #6366F1;
-  --accent-pale: #EEF2FF;
+  /* Secondary Colors - 세이지 그린 */
+  --secondary: #6BA88D;
+  --secondary-light: #8FBFA8;
+  --secondary-dark: #4E8A6F;
+  --secondary-pale: #E5F2EB;
+
+  /* Accent Colors - 페일 라임 그린 (CTA, 강조) */
+  --accent: #DDEBC6;
+  --accent-dark: #C5D9A8;
+  --accent-light: #EAF4D9;
+  --accent-pale: #F5F9EE;
 
   /* Status Colors */
   --success: #10B981;
