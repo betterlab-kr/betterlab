@@ -290,8 +290,8 @@ img {
   left: 0;
   right: 0;
   background: rgba(255, 255, 255, 0.98);
-  border-bottom: 1px solid rgba(30, 30, 110, 0.12);
-  box-shadow: 0 6px 20px rgba(30, 30, 110, 0.16);
+  border-bottom: 1px solid rgba(18, 67, 48, 0.12);
+  box-shadow: 0 6px 20px rgba(18, 67, 48, 0.16);
   z-index: 99999;
 }
 
@@ -312,7 +312,7 @@ img {
   justify-content: center;
   padding: 10px 8px;
   background: var(--neutral-50);
-  border: 1px solid rgba(30, 30, 110, 0.08);
+  border: 1px solid rgba(18, 67, 48, 0.08);
   border-radius: 10px;
   text-decoration: none;
   color: var(--neutral-800);
@@ -320,16 +320,16 @@ img {
   font-size: 13px;
   transition: all 0.3s ease;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(30, 30, 110, 0.08);
+  box-shadow: 0 2px 6px rgba(18, 67, 48, 0.08);
 }
 
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
-  background: linear-gradient(135deg, rgba(30, 30, 110, 0.95), rgba(45, 45, 138, 0.88));
+  background: linear-gradient(135deg, rgba(18, 67, 48, 0.95), rgba(26, 92, 66, 0.88));
   color: white;
-  border-color: rgba(30, 30, 110, 0.2);
+  border-color: rgba(18, 67, 48, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(30, 30, 110, 0.18);
+  box-shadow: 0 8px 16px rgba(18, 67, 48, 0.18);
 }
 
 .mobile-nav-link.cta-link {
@@ -359,7 +359,7 @@ img {
 .mobile-nav-link.cta-link:hover {
   background: var(--accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.35);
+  box-shadow: 0 8px 16px rgba(107, 168, 141, 0.35);
 }
 
 /* Mobile CTA Wide Banner */
@@ -371,7 +371,7 @@ img {
   width: calc(100% - 28px);
   margin: 0 14px 14px;
   padding: 16px 20px;
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  background: linear-gradient(135deg, #6BA88D 0%, #4E8A6F 100%);
   color: white;
   font-size: 15px;
   font-weight: 700;
@@ -379,7 +379,7 @@ img {
   border-radius: 12px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 15px rgba(107, 168, 141, 0.4);
   transition: all 0.3s ease;
 }
 
@@ -400,9 +400,9 @@ img {
 }
 
 .mobile-nav-cta-banner:hover {
-  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  background: linear-gradient(135deg, #4E8A6F 0%, #124330 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 20px rgba(107, 168, 141, 0.5);
 }
 
 .mobile-nav-cta-banner svg {
@@ -696,7 +696,7 @@ img {
    ================================================ */
 .cta-section {
   position: relative;
-  background: linear-gradient(135deg, #0a1628 0%, #1a3a5f 50%, #0a1628 100%);
+  background: linear-gradient(135deg, #0C2E21 0%, #1A5C42 50%, #0C2E21 100%);
   padding: 60px 0 0;
   overflow: hidden;
 }
@@ -708,9 +708,9 @@ img {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 50% 20%, rgba(96, 165, 250, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 20% 50%, rgba(107, 168, 141, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(78, 138, 111, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 20%, rgba(143, 191, 168, 0.08) 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -732,14 +732,14 @@ img {
   font-weight: 700;
   margin-bottom: 18px;
   line-height: 1.25;
-  text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+  text-shadow: 0 0 30px rgba(107, 168, 141, 0.5);
 }
 
 .cta-highlight {
-  color: #7DD3FC;
+  color: #DDEBC6;
   text-shadow:
-    0 0 20px rgba(125, 211, 252, 0.8),
-    0 0 40px rgba(125, 211, 252, 0.5);
+    0 0 20px rgba(221, 235, 198, 0.8),
+    0 0 40px rgba(221, 235, 198, 0.5);
 }
 
 .cta-desc {
@@ -747,7 +747,7 @@ img {
   line-height: 1.5;
   margin-bottom: 32px;
   color: #FFFFFF;
-  text-shadow: 0 0 10px rgba(125, 211, 252, 0.3);
+  text-shadow: 0 0 10px rgba(221, 235, 198, 0.3);
 }
 
 .cta-section .mobile-br {
@@ -783,25 +783,25 @@ img {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: #FFFFFF;
-  border: 1px solid rgba(125, 211, 252, 0.4);
-  box-shadow: 0 4px 20px rgba(125, 211, 252, 0.15);
+  border: 1px solid rgba(221, 235, 198, 0.4);
+  box-shadow: 0 4px 20px rgba(221, 235, 198, 0.15);
 }
 
 .cta-btn-secondary:hover {
   transform: translateY(-3px);
   background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(125, 211, 252, 0.6);
-  box-shadow: 0 8px 30px rgba(125, 211, 252, 0.25);
+  border-color: rgba(221, 235, 198, 0.6);
+  box-shadow: 0 8px 30px rgba(221, 235, 198, 0.25);
 }
 
 .cta-btn-primary {
-  background: linear-gradient(135deg, #7DD3FC 0%, #38BDF8 100%);
-  color: #0C4A6E;
+  background: linear-gradient(135deg, #DDEBC6 0%, #8FBFA8 100%);
+  color: #0C2E21;
   font-weight: 700;
   border: none;
   box-shadow:
-    0 4px 20px rgba(125, 211, 252, 0.4),
-    0 0 40px rgba(125, 211, 252, 0.3);
+    0 4px 20px rgba(221, 235, 198, 0.4),
+    0 0 40px rgba(221, 235, 198, 0.3);
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
@@ -818,11 +818,11 @@ img {
 }
 
 .cta-btn-primary:hover {
-  background: linear-gradient(135deg, #38BDF8 0%, #0EA5E9 100%);
+  background: linear-gradient(135deg, #8FBFA8 0%, #6BA88D 100%);
   color: #FFFFFF;
   box-shadow:
-    0 8px 30px rgba(125, 211, 252, 0.5),
-    0 0 50px rgba(125, 211, 252, 0.4);
+    0 8px 30px rgba(221, 235, 198, 0.5),
+    0 0 50px rgba(221, 235, 198, 0.4);
   transform: translateY(-3px);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -840,7 +840,7 @@ img {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(125, 211, 252, 0.4);
+  border: 1px solid rgba(221, 235, 198, 0.4);
   color: #FFFFFF;
   padding: 14px 28px;
   border-radius: 50px;
@@ -848,28 +848,28 @@ img {
   font-weight: 600;
   margin-top: 8px;
   box-shadow:
-    0 0 30px rgba(125, 211, 252, 0.15),
+    0 0 30px rgba(221, 235, 198, 0.15),
     0 4px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 .cta-badge:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(125, 211, 252, 0.6);
+  border-color: rgba(221, 235, 198, 0.6);
   box-shadow:
-    0 0 40px rgba(125, 211, 252, 0.25),
-    0 8px 25px rgba(125, 211, 252, 0.2);
+    0 0 40px rgba(221, 235, 198, 0.25),
+    0 8px 25px rgba(221, 235, 198, 0.2);
 }
 
 .cta-badge svg {
-  color: #7DD3FC;
+  color: #DDEBC6;
 }
 
 .cta-badge-rate {
   font-size: 24px;
   font-weight: 800;
-  color: #7DD3FC;
-  text-shadow: 0 0 15px rgba(125, 211, 252, 0.8);
+  color: #DDEBC6;
+  text-shadow: 0 0 15px rgba(221, 235, 198, 0.8);
 }
 
 /* 정부기관 섹션 */
@@ -883,7 +883,7 @@ img {
   color: white;
   margin-bottom: 28px;
   font-weight: 600;
-  text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  text-shadow: 0 0 15px rgba(107, 168, 141, 0.5);
 }
 
 .gov-logos-wrapper {
@@ -894,8 +894,8 @@ img {
   padding: 28px 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  border-top: 1px solid rgba(96, 165, 250, 0.2);
-  border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+  border-top: 1px solid rgba(143, 191, 168, 0.2);
+  border-bottom: 1px solid rgba(143, 191, 168, 0.2);
 }
 
 .gov-logos {
@@ -931,14 +931,14 @@ img {
   padding: 16px;
   transition: all 0.3s ease;
   text-decoration: none;
-  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);
-  border: 1px solid rgba(96, 165, 250, 0.1);
+  box-shadow: 0 2px 10px rgba(107, 168, 141, 0.2);
+  border: 1px solid rgba(143, 191, 168, 0.1);
 }
 
 .gov-logo:hover {
   transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-  border-color: rgba(96, 165, 250, 0.3);
+  box-shadow: 0 10px 30px rgba(107, 168, 141, 0.3);
+  border-color: rgba(143, 191, 168, 0.3);
   background: white;
 }
 
@@ -969,11 +969,11 @@ img {
 .gov-indicator.active {
   background: var(--accent-light);
   transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  box-shadow: 0 0 10px rgba(143, 191, 168, 0.5);
 }
 
 .gov-indicator:hover {
-  background: rgba(96, 165, 250, 0.6);
+  background: rgba(143, 191, 168, 0.6);
   transform: scale(1.1);
 }
 
@@ -1549,7 +1549,7 @@ img {
 .form-submit:hover {
   background: var(--accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 20px rgba(107, 168, 141, 0.3);
 }
 
 .form-benefits {
@@ -1657,8 +1657,8 @@ img {
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.98);
-    border-bottom: 1px solid rgba(30, 30, 110, 0.12);
-    box-shadow: 0 6px 20px rgba(30, 30, 110, 0.16);
+    border-bottom: 1px solid rgba(18, 67, 48, 0.12);
+    box-shadow: 0 6px 20px rgba(18, 67, 48, 0.16);
     z-index: 99999;
   }
 
