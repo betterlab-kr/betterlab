@@ -1,0 +1,18 @@
+{
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "admin.kpfc.kr"
+        }
+      ],
+      "destination": "/admin/",
+      "permanent": false
+    }
+  ]
+}
