@@ -225,7 +225,7 @@ img {
   align-items: center;
   gap: 8px;
   padding: 4px 24px;
-  background: var(--accent);
+  background: var(--primary);
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -233,7 +233,7 @@ img {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(18, 67, 48, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -264,9 +264,9 @@ img {
 }
 
 .btn-cta:hover {
-  background: var(--accent-dark);
+  background: var(--primary-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 6px 20px rgba(18, 67, 48, 0.5), 0 0 20px rgba(18, 67, 48, 0.3);
 }
 
 /* Mobile Menu Button */
