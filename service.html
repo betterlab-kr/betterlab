@@ -1632,6 +1632,16 @@
             margin-top: 12px;
         }
 
+        .bizen-form-section .submit-note .mobile-br {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .bizen-form-section .submit-note .mobile-br {
+                display: block;
+            }
+        }
+
         /* 성공/실패 메시지 */
         .bizen-form-section .message-box {
             display: none;
@@ -2003,7 +2013,7 @@
                         <!-- 제출 버튼 -->
                         <div class="submit-section">
                             <button type="submit" class="submit-button" id="kpfcSubmitButton">무료진단 신청하기</button>
-                            <p class="submit-note">신청 후 더나은기업연구소 전문가가 1영업일 내 연락드립니다</p>
+                            <p class="submit-note">신청 후 더나은 기업연구소에서<br class="mobile-br">24시간 내 연락드립니다.</p>
                         </div>
                     </form>
                 </div>
