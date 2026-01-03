@@ -1,14 +1,19 @@
-name = "kpfc-api"
+name = "betterlab-analytics"
 main = "worker.js"
 compatibility_date = "2024-01-01"
-account_id = "bf39e5c4b6ef41af31941676cc384300"
+account_id = "11fb32b3efbcb8f3de0a2dff940797a5"
 
 # GitHub API 연동 (페이지 에디터용)
 [vars]
-GITHUB_OWNER = "a01027770093-kpfc"
-GITHUB_REPO = "kpfc"
+GITHUB_OWNER = "betterlab-kr"
+GITHUB_REPO = "betterlab"
 GITHUB_BRANCH = "main"
 
 # Cron Trigger - 매일 KST 01:00 (UTC 16:00) GA4 데이터 수집
 [triggers]
 crons = ["0 16 * * *"]
+
+# R2 버킷 바인딩 (이미지 업로드용)
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "betterlab"

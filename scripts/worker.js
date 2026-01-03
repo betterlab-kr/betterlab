@@ -594,22 +594,46 @@ async function handleSubmit(request, env) {
       // 프론트에서 전달받은 필드 사용
       const rawFields = data.airtableFields || {};
 
-      // 필드명 변환 (프론트 → Airtable)
-      const fields = { ...rawFields };
+      // 필드명 매핑 (한글 → 영문)
+      const fieldMap = {
+        '기업명': 'Company',
+        '사업자번호': 'BizNo',
+        '대표자명': 'Name',
+        '연락처': 'Phone',
+        '이메일': 'Email',
+        '지역': 'Region',
+        '업종': 'Industry',
+        '설립연도': 'Founded',
+        '직전년도매출': 'Revenue',
+        '통화가능시간': 'CallTime',
+        '필요자금규모': 'Amount',
+        '자금종류': 'FundType',
+        '문의사항': 'Message',
+        '접수일': 'Date',
+        '접수시간': 'Time',
+        '상태': 'Status',
+        '메모': 'Memo'
+      };
 
-      // "자금종류" 배열을 문자열로 변환 (이미 문자열이면 그대로 사용)
-      if (rawFields['자금종류']) {
-        const fundTypes = rawFields['자금종류'];
-        fields['자금종류'] = Array.isArray(fundTypes) ? fundTypes.join(', ') : fundTypes;
+      // 필드명 변환 (프론트 → Airtable)
+      const fields = {};
+      for (const [korKey, value] of Object.entries(rawFields)) {
+        const engKey = fieldMap[korKey] || korKey;
+        fields[engKey] = value;
+      }
+
+      // "FundType" 배열을 문자열로 변환
+      if (fields['FundType']) {
+        fields['FundType'] = Array.isArray(fields['FundType']) ? fields['FundType'].join(', ') : fields['FundType'];
       }
 
       // 체크박스 필드 제거 (Airtable에 없음)
       delete fields['개인정보 수집및이용동의'];
 
       // 접수일시 추가
-      fields['접수일'] = submitDate;
-      fields['접수시간'] = submitTime;
-      fields['상태'] = '신규';
+      fields['Date'] = submitDate;
+      fields['Time'] = submitTime;
+      fields['Status'] = '신규';
 
       const airtableResponse = await fetch(
         `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/consulting`,
@@ -763,32 +787,37 @@ async function handleSubmit(request, env) {
 
 // Telegram 메시지 생성
 function buildTelegramMessage(fields, submitDate, submitTime) {
-  let msg = '🔔 <b>한국정책자금지원센터 신규 상담</b>\n\n';
+  let msg = '🔔 <b>더나은기업연구소 신규 상담</b>\n\n';
   msg += '👤 <b>고객정보</b>\n';
-  msg += '├ 기업명: <b>' + escapeHtml(fields['기업명']) + '</b>\n';
-  msg += '├ 사업자번호: ' + escapeHtml(fields['사업자번호']) + '\n';
-  msg += '├ 대표자명: <b>' + escapeHtml(fields['대표자명']) + '</b>\n';
-  msg += '├ 연락처: <code>' + escapeHtml(fields['연락처']) + '</code>\n';
-  msg += '├ 이메일: ' + escapeHtml(fields['이메일']) + '\n';
-  msg += '├ 지역: ' + escapeHtml(fields['지역']) + '\n';
-  msg += '└ 통화가능: <b>' + escapeHtml(fields['통화가능시간']) + '</b>\n\n';
+  msg += '├ 기업명: <b>' + escapeHtml(fields['기업명'] || fields['Company']) + '</b>\n';
+  msg += '├ 사업자번호: ' + escapeHtml(fields['사업자번호'] || fields['BizNo']) + '\n';
+  msg += '├ 대표자명: <b>' + escapeHtml(fields['대표자명'] || fields['Name']) + '</b>\n';
+  msg += '├ 연락처: <code>' + escapeHtml(fields['연락처'] || fields['Phone']) + '</code>\n';
+  msg += '├ 이메일: ' + escapeHtml(fields['이메일'] || fields['Email']) + '\n';
+  msg += '├ 지역: ' + escapeHtml(fields['지역'] || fields['Region']) + '\n';
+  msg += '└ 통화가능: <b>' + escapeHtml(fields['통화가능시간'] || fields['CallTime']) + '</b>\n\n';
 
   msg += '💰 <b>자금정보</b>\n';
-  const fundTypes = fields['자금종류'];
+  const fundTypes = fields['자금종류'] || fields['FundType'];
   if (fundTypes) {
     msg += '├ 자금종류: ' + escapeHtml(fundTypes) + '\n';
   }
-  if (fields['필요자금규모']) msg += '├ 필요규모: ' + escapeHtml(fields['필요자금규모']) + '\n';
-  if (fields['업종']) msg += '├ 업종: ' + escapeHtml(fields['업종']) + '\n';
-  if (fields['설립연도']) msg += '├ 설립연도: ' + escapeHtml(fields['설립연도']) + '\n';
-  if (fields['직전년도매출']) msg += '└ 매출: ' + escapeHtml(fields['직전년도매출']) + '\n';
+  const amount = fields['필요자금규모'] || fields['Amount'];
+  const industry = fields['업종'] || fields['Industry'];
+  const founded = fields['설립연도'] || fields['Founded'];
+  const revenue = fields['직전년도매출'] || fields['Revenue'];
+  if (amount) msg += '├ 필요규모: ' + escapeHtml(amount) + '\n';
+  if (industry) msg += '├ 업종: ' + escapeHtml(industry) + '\n';
+  if (founded) msg += '├ 설립연도: ' + escapeHtml(founded) + '\n';
+  if (revenue) msg += '└ 매출: ' + escapeHtml(revenue) + '\n';
 
-  if (fields['문의사항'] && fields['문의사항'] !== '-') {
-    msg += '\n💬 <b>문의</b>\n' + escapeHtml(fields['문의사항']) + '\n';
+  const message = fields['문의사항'] || fields['Message'];
+  if (message && message !== '-') {
+    msg += '\n💬 <b>문의</b>\n' + escapeHtml(message) + '\n';
   }
 
   msg += '\n📅 ' + submitDate + ' ' + submitTime;
-  msg += '\n\n📋 <a href="https://airtable.com/appwr3xRqHrc3z0zQ/shrD27tU9ZndZ7d3o">접수내역 확인하기</a> (클릭시 Airtable에서 상세 내용 확인)';
+  msg += '\n\n📋 <a href="https://airtable.com/appiCVibf1BnLxKOL/shrCe4DuinV23Cqux">접수내역 확인하기</a>';
   return msg;
 }
 
@@ -804,7 +833,7 @@ async function handleLeadsAPI(request, env, path) {
     try {
       console.log('📋 Fetching leads...');
 
-      const sortField = encodeURIComponent('접수일');
+      const sortField = encodeURIComponent('Date');
       const airtableUrl = `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/consulting?sort[0][field]=${sortField}&sort[0][direction]=desc`;
       const airtableResponse = await fetch(airtableUrl, {
         headers: { 'Authorization': `Bearer ${env.AIRTABLE_TOKEN}` }
@@ -825,21 +854,23 @@ async function handleLeadsAPI(request, env, path) {
       const leads = result.records.map(record => ({
         id: record.id,
         createdTime: record.createdTime,
-        기업명: record.fields['기업명'],
-        사업자번호: record.fields['사업자번호'],
-        대표자명: record.fields['대표자명'],
-        연락처: record.fields['연락처'],
-        이메일: record.fields['이메일'],
-        지역: record.fields['지역'],
-        업종: record.fields['업종'],
-        설립연도: record.fields['설립연도'],
-        직전년도매출: record.fields['직전년도매출'],
-        통화가능시간: record.fields['통화가능시간'],
-        필요자금규모: record.fields['필요자금규모'],
-        자금종류: record.fields['자금종류'],
-        문의사항: record.fields['문의사항'],
-        상태: record.fields['상태'] || '신규',
-        메모: record.fields['메모'] || ''
+        Company: record.fields['Company'],
+        BizNo: record.fields['BizNo'],
+        Name: record.fields['Name'],
+        Phone: record.fields['Phone'],
+        Email: record.fields['Email'],
+        Region: record.fields['Region'],
+        Industry: record.fields['Industry'],
+        Founded: record.fields['Founded'],
+        Revenue: record.fields['Revenue'],
+        CallTime: record.fields['CallTime'],
+        Amount: record.fields['Amount'],
+        FundType: record.fields['FundType'],
+        Message: record.fields['Message'],
+        Date: record.fields['Date'],
+        Time: record.fields['Time'],
+        Status: record.fields['Status'] || '신규',
+        Memo: record.fields['Memo'] || ''
       }));
 
       console.log(`✅ Fetched ${leads.length} leads`);
@@ -869,8 +900,12 @@ async function handleLeadsAPI(request, env, path) {
       const data = await request.json();
       const fields = {};
 
-      if (data.상태 !== undefined) fields['상태'] = data.상태;
-      if (data.메모 !== undefined) fields['메모'] = data.메모;
+      // 영문 필드명 지원 (우선) + 한글 필드명 호환
+      if (data.Status !== undefined) fields['Status'] = data.Status;
+      else if (data.상태 !== undefined) fields['Status'] = data.상태;
+      
+      if (data.Memo !== undefined) fields['Memo'] = data.Memo;
+      else if (data.메모 !== undefined) fields['Memo'] = data.메모;
 
       const airtableResponse = await fetch(
         `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/consulting/${recordId}`,
