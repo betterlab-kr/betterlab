@@ -1,4 +1,4 @@
-// KPFC 관리자 인증 모듈
+// 더나은 기업연구소 관리자 인증 모듈
 const AUTH_KEY = 'kpfc_admin_auth';
 const WORKER_URL = 'https://betterlab-analytics.skai8588.workers.dev';
 
@@ -137,7 +137,7 @@ function showLoginModal() {
       }
     </style>
     <div class="login-box">
-      <h2>KPFC 관리자</h2>
+      <h2>더나은 기업연구소</h2>
       <p>관리자 비밀번호를 입력하세요</p>
       <input type="password" class="login-input" id="login-password" placeholder="비밀번호" autocomplete="current-password">
       <button class="login-btn" id="login-submit">로그인</button>
@@ -195,4 +195,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // 전역 함수 등록
-window.kpfcAuth = { checkAuth, login, logout, showLoginModal };
+window.adminAuth = { checkAuth, login, logout, showLoginModal };

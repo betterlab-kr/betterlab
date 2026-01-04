@@ -1,5 +1,5 @@
 // ================================================
-// KPFC 통합 Workers API
+// 더나은 기업연구소 통합 Workers API
 // 기능: GA4 Analytics + 문의접수 + 게시판
 // 작성일: 2024-12-26
 // 배포: Cloudflare Workers
@@ -568,7 +568,7 @@ async function getOverviewFromCache(env, days) {
 // ================================================
 
 async function handleSubmit(request, env) {
-  console.log('📥 KPFC 문의 접수');
+  console.log('📥 더나은 기업연구소 문의 접수');
 
   const data = await request.json();
   const results = {
@@ -1854,7 +1854,7 @@ async function getFileFromGitHub(env, filePath) {
       headers: {
         'Authorization': `token ${env.GITHUB_TOKEN}`,
         'Accept': 'application/vnd.github.v3+json',
-        'User-Agent': 'KPFC-Worker'
+        'User-Agent': 'BetterLab-Worker'
       }
     }
   );
@@ -1884,7 +1884,7 @@ async function updateFileOnGitHub(env, filePath, content, sha, message) {
       headers: {
         'Authorization': `token ${env.GITHUB_TOKEN}`,
         'Accept': 'application/vnd.github.v3+json',
-        'User-Agent': 'KPFC-Worker',
+        'User-Agent': 'BetterLab-Worker',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -2556,7 +2556,7 @@ export default {
       // 기본 응답
       // ================================================
       return new Response(JSON.stringify({
-        message: 'KPFC API',
+        message: '더나은 기업연구소 API',
         endpoints: [
           'POST / - 문의 접수',
           'POST /submit - 문의 접수',
