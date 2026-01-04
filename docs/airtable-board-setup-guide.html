@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airtable Board 테이블 설정 가이드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .copy-btn:active { transform: scale(0.95); }
+        .step-card { transition: all 0.2s; }
+        .step-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .checked { background: #10B981 !important; border-color: #10B981 !important; }
+        .checked::after { content: '✓'; color: white; font-size: 12px; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto py-8 px-4">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 mb-8 text-white">
+            <h1 class="text-3xl font-bold mb-2">📋 Airtable Board 테이블 설정 가이드</h1>
+            <p class="opacity-90">더나은기업연구소 게시판 관리를 위한 Airtable 테이블 생성</p>
+        </div>
+
+        <!-- Progress -->
+        <div class="bg-white rounded-xl p-6 mb-8 shadow-sm">
+            <h2 class="text-lg font-semibold mb-4">진행 상황</h2>
+            <div class="flex items-center gap-2">
+                <div id="progress-1" class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center cursor-pointer" onclick="toggleStep(1)"></div>
+                <div class="flex-1 h-1 bg-gray-200 rounded"></div>
+                <div id="progress-2" class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center cursor-pointer" onclick="toggleStep(2)"></div>
+                <div class="flex-1 h-1 bg-gray-200 rounded"></div>
+                <div id="progress-3" class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center cursor-pointer" onclick="toggleStep(3)"></div>
+                <div class="flex-1 h-1 bg-gray-200 rounded"></div>
+                <div id="progress-4" class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center cursor-pointer" onclick="toggleStep(4)"></div>
+            </div>
+            <div class="flex justify-between mt-2 text-xs text-gray-500">
+                <span>테이블 생성</span>
+                <span>필드 추가</span>
+                <span>카테고리 설정</span>
+                <span>완료</span>
+            </div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-card bg-white rounded-xl p-6 mb-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">Step 1</span>
+                <h3 class="text-xl font-bold">테이블 생성</h3>
+            </div>
+            <ol class="space-y-3 text-gray-700">
+                <li class="flex gap-2">
+                    <span class="text-blue-500 font-bold">1.</span>
+                    <span>Airtable 베이스 열기 (더나은기업연구소 베이스)</span>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-blue-500 font-bold">2.</span>
+                    <span>좌측 하단 <code class="bg-gray-100 px-2 py-0.5 rounded">+ Add or import</code> 클릭</span>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-blue-500 font-bold">3.</span>
+                    <span><code class="bg-gray-100 px-2 py-0.5 rounded">Create blank table</code> 선택</span>
+                </li>
+                <li class="flex gap-2">
+                    <span class="text-blue-500 font-bold">4.</span>
+                    <span>테이블 이름 입력:</span>
+                </li>
+            </ol>
+            <div class="mt-4 flex items-center gap-2">
+                <input type="text" value="board" readonly class="flex-1 bg-gray-100 px-4 py-2 rounded-lg font-mono text-lg">
+                <button onclick="copyText('board')" class="copy-btn bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
+                    복사
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card bg-white rounded-xl p-6 mb-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">Step 2</span>
+                <h3 class="text-xl font-bold">필드 추가</h3>
+            </div>
+            <p class="text-gray-600 mb-4">각 필드를 순서대로 추가하세요. <code class="bg-gray-100 px-2 py-0.5 rounded">+</code> 버튼을 클릭하여 새 필드를 추가합니다.</p>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left font-semibold">필드명</th>
+                            <th class="px-4 py-3 text-left font-semibold">타입</th>
+                            <th class="px-4 py-3 text-left font-semibold">설명</th>
+                            <th class="px-4 py-3 text-center font-semibold">복사</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3 font-mono">title</td>
+                            <td class="px-4 py-3"><span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs">Single line text</span></td>
+                            <td class="px-4 py-3 text-gray-600">게시글 제목</td>
+                            <td class="px-4 py-3 text-center"><button onclick="copyText('title')" class="text-blue-500 hover:text-blue-700">📋</button></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3 font-mono">content</td>
+                            <td class="px-4 py-3"><span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">Long text</span></td>
+                            <td class="px-4 py-3 text-gray-600">게시글 본문 (HTML)</td>
+                            <td class="px-4 py-3 text-center"><button onclick="copyText('content')" class="text-blue-500 hover:text-blue-700">📋</button></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3 font-mono">summary</td>
+                            <td class="px-4 py-3"><span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs">Single line text</span></td>
+                            <td class="px-4 py-3 text-gray-600">요약 (목록 표시용)</td>
+                            <td class="px-4 py-3 text-center"><button onclick="copyText('summary')" class="text-blue-500 hover:text-blue-700">📋</button></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 bg-blue-50">
+                            <td class="px-4 py-3 font-mono font-semibold">category</td>
+                            <td class="px-4 py-3"><span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs">Single select</span></td>
+                            <td class="px-4 py-3 text-gray-600">카테고리 (Step 3 참조)</td>
+                            <td class="px-4 py-3 text-center"><button onclick="copyText('category')" class="text-blue-500 hover:text-blue-700">📋</button></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3 font-mono">thumbnailUrl</td>
+                            <td class="px-4 py-3"><span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs">URL</span></td>
+                            <td class="px-4 py-3 text-gray-600">썸네일 이미지 URL</td>
+                            <td class="px-4 py-3 text-center"><button onclick="copyText('thumbnailUrl')" class="text-blue-500 hover:text-blue-700">📋</button></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3 font-mono">tags</td>
+                            <td class="px-4 py-3"><span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs">Single line text</span></td>
+                            <td class="px-4 py-3 text-gray-600">태그 (쉼표 구분)</td>
+                            <td class="px-4 py-3 text-center"><button onclick="copyText('tags')" class="text-blue-500 hover:text-blue-700">📋</button></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3 font-mono">date</td>
+                            <td class="px-4 py-3"><span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded text-xs">Date</span></td>
+                            <td class="px-4 py-3 text-gray-600">게시일</td>
+                            <td class="px-4 py-3 text-center"><button onclick="copyText('date')" class="text-blue-500 hover:text-blue-700">📋</button></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3 font-mono">views</td>
+                            <td class="px-4 py-3"><span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs">Number</span></td>
+                            <td class="px-4 py-3 text-gray-600">조회수</td>
+                            <td class="px-4 py-3 text-center"><button onclick="copyText('views')" class="text-blue-500 hover:text-blue-700">📋</button></td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3 font-mono">isPublic</td>
+                            <td class="px-4 py-3"><span class="bg-teal-100 text-teal-700 px-2 py-0.5 rounded text-xs">Checkbox</span></td>
+                            <td class="px-4 py-3 text-gray-600">공개 여부</td>
+                            <td class="px-4 py-3 text-center"><button onclick="copyText('isPublic')" class="text-blue-500 hover:text-blue-700">📋</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card bg-white rounded-xl p-6 mb-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">Step 3</span>
+                <h3 class="text-xl font-bold">카테고리 옵션 설정</h3>
+            </div>
+            <p class="text-gray-600 mb-4"><code class="bg-gray-100 px-2 py-0.5 rounded">category</code> 필드의 Single select 옵션에 아래 4개 항목을 추가하세요:</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
+                    <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+                    <span class="font-medium">공지사항</span>
+                    <button onclick="copyText('공지사항')" class="ml-auto text-blue-500 hover:text-blue-700">📋</button>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
+                    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                    <span class="font-medium">정책자금</span>
+                    <button onclick="copyText('정책자금')" class="ml-auto text-blue-500 hover:text-blue-700">📋</button>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
+                    <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+                    <span class="font-medium">마케팅소식</span>
+                    <button onclick="copyText('마케팅소식')" class="ml-auto text-blue-500 hover:text-blue-700">📋</button>
+                </div>
+                <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
+                    <span class="w-3 h-3 bg-orange-500 rounded-full"></span>
+                    <span class="font-medium">기업지원</span>
+                    <button onclick="copyText('기업지원')" class="ml-auto text-blue-500 hover:text-blue-700">📋</button>
+                </div>
+            </div>
+            
+            <div class="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p class="text-yellow-800 text-sm">
+                    <strong>💡 Tip:</strong> category 필드 헤더 클릭 → Customize field → 옵션 추가에서 위 4개 항목을 입력하세요.
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card bg-white rounded-xl p-6 mb-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold">Step 4</span>
+                <h3 class="text-xl font-bold">완료 확인</h3>
+            </div>
+            
+            <div class="space-y-3">
+                <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+                    <input type="checkbox" class="w-5 h-5 rounded" onchange="updateCompletion()">
+                    <span>테이블 이름이 <code class="bg-gray-200 px-2 py-0.5 rounded">board</code>인지 확인</span>
+                </label>
+                <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+                    <input type="checkbox" class="w-5 h-5 rounded" onchange="updateCompletion()">
+                    <span>9개 필드 모두 추가됨 (title, content, summary, category, thumbnailUrl, tags, date, views, isPublic)</span>
+                </label>
+                <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
+                    <input type="checkbox" class="w-5 h-5 rounded" onchange="updateCompletion()">
+                    <span>category에 4개 옵션 추가됨 (공지사항, 정책자금, 마케팅소식, 기업지원)</span>
+                </label>
+            </div>
+            
+            <div id="completion-message" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <p class="text-green-800 font-semibold">✅ Airtable board 테이블 설정 완료!</p>
+                <p class="text-green-700 text-sm mt-1">이제 admin/board.html에서 게시판을 관리할 수 있습니다.</p>
+            </div>
+        </div>
+
+        <!-- Sample Data -->
+        <div class="bg-white rounded-xl p-6 shadow-sm">
+            <h3 class="text-xl font-bold mb-4">📝 예시 데이터 등록 (선택)</h3>
+            <p class="text-gray-600 mb-4">6개의 예시 게시글을 등록하려면 아래 명령어를 실행하세요:</p>
+            
+            <div class="bg-gray-900 rounded-lg p-4 text-green-400 font-mono text-sm overflow-x-auto">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-gray-500"># Windows CMD</span>
+                    <button onclick="copyCode('windows')" class="text-blue-400 hover:text-blue-300 text-xs">복사</button>
+                </div>
+                <pre id="code-windows">cd F:\pola_homepage\6.20th_anjaewoo_better\scripts
+set AIRTABLE_TOKEN=your_token_here
+set AIRTABLE_BASE_ID=your_base_id_here
+node add-posts.js</pre>
+            </div>
+            
+            <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <p class="text-blue-800 text-sm">
+                    <strong>ℹ️ 토큰 찾기:</strong> Airtable → Account → API → Personal access token에서 확인<br>
+                    <strong>ℹ️ Base ID 찾기:</strong> Airtable 베이스 URL에서 <code>app</code>으로 시작하는 문자열
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('복사됨: ' + text);
+            });
+        }
+
+        function copyCode(type) {
+            const code = document.getElementById('code-' + type).textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                showToast('코드가 복사되었습니다');
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg z-50 animate-pulse';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+
+        function toggleStep(step) {
+            const el = document.getElementById('progress-' + step);
+            el.classList.toggle('checked');
+        }
+
+        function updateCompletion() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+            document.getElementById('completion-message').classList.toggle('hidden', !allChecked);
+            if (allChecked) {
+                toggleStep(4);
+            }
+        }
+    </script>
+</body>
+</html>

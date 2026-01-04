@@ -1014,7 +1014,7 @@ async function handleBoardAPI(request, env, path) {
   if (method === 'GET' && (path === '/board' || path === '/posts')) {
     try {
       const airtableResponse = await fetch(
-        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board?sort[0][field]=date&sort[0][direction]=desc`,
+        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board2?sort[0][field]=date&sort[0][direction]=desc`,
         {
           headers: { 'Authorization': `Bearer ${env.AIRTABLE_TOKEN}` }
         }
@@ -1072,7 +1072,7 @@ async function handleBoardAPI(request, env, path) {
       };
 
       const airtableResponse = await fetch(
-        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board`,
+        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board2`,
         {
           method: 'POST',
           headers: {
@@ -1133,7 +1133,7 @@ async function handleBoardAPI(request, env, path) {
       if (data.게시여부 !== undefined) fields.isPublic = data.게시여부;
 
       const airtableResponse = await fetch(
-        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board/${recordId}`,
+        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board2/${recordId}`,
         {
           method: 'PATCH',
           headers: {
@@ -1182,7 +1182,7 @@ async function handleBoardAPI(request, env, path) {
       console.log('🗑️ Deleting board post:', recordId);
 
       const airtableResponse = await fetch(
-        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board/${recordId}`,
+        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board2/${recordId}`,
         {
           method: 'DELETE',
           headers: {
@@ -1228,7 +1228,7 @@ async function handleBoardAPI(request, env, path) {
     try {
       const recordId = path.replace('/posts/', '');
       const airtableResponse = await fetch(
-        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board/${recordId}`,
+        `https://api.airtable.com/v0/${env.AIRTABLE_BASE_ID}/board2/${recordId}`,
         {
           headers: { 'Authorization': `Bearer ${env.AIRTABLE_TOKEN}` }
         }
@@ -2144,15 +2144,15 @@ export default {
 
       // ================================================
       // 이미지 업로드 API (POST /upload)
-      // R2 S3 호환 API를 사용하여 이미지 저장
+      // R2 Binding을 사용하여 이미지 저장 (권장 방식)
       // ================================================
       if (path === '/upload' && request.method === 'POST') {
         try {
-          // R2 자격 증명 확인
-          if (!env.R2_ACCESS_KEY_ID || !env.R2_SECRET_ACCESS_KEY) {
+          // R2 버킷 바인딩 확인
+          if (!env.BUCKET) {
             return new Response(JSON.stringify({
               success: false,
-              error: 'R2 credentials not configured'
+              error: 'R2 bucket not bound. Check wrangler.toml [[r2_buckets]] config.'
             }), {
               status: 500,
               headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' }
@@ -2178,76 +2178,18 @@ export default {
           const ext = file.name.split('.').pop() || 'webp';
           const fileName = `board/${timestamp}-${randomStr}.${ext}`;
 
-          // R2 S3 호환 API로 업로드
-          const accountId = '11fb32b3efbcb8f3de0a2dff940797a5';
-          const bucketName = 'betterlab';
-          const r2Endpoint = `https://${accountId}.r2.cloudflarestorage.com`;
-
+          // R2 바인딩으로 업로드 (간단!)
           const arrayBuffer = await file.arrayBuffer();
           const contentType = file.type || 'image/webp';
 
-          // AWS Signature Version 4 서명 생성
-          const date = new Date();
-          const amzDate = date.toISOString().replace(/[:-]|\.\d{3}/g, '');
-          const dateStamp = amzDate.slice(0, 8);
-          const region = 'auto';
-          const service = 's3';
-
-          const canonicalUri = `/${bucketName}/${fileName}`;
-          const canonicalQueryString = '';
-          const payloadHash = await sha256Hex(arrayBuffer);
-
-          const canonicalHeaders = [
-            `content-type:${contentType}`,
-            `host:${accountId}.r2.cloudflarestorage.com`,
-            `x-amz-content-sha256:${payloadHash}`,
-            `x-amz-date:${amzDate}`
-          ].join('\n') + '\n';
-
-          const signedHeaders = 'content-type;host;x-amz-content-sha256;x-amz-date';
-
-          const canonicalRequest = [
-            'PUT',
-            canonicalUri,
-            canonicalQueryString,
-            canonicalHeaders,
-            signedHeaders,
-            payloadHash
-          ].join('\n');
-
-          const algorithm = 'AWS4-HMAC-SHA256';
-          const credentialScope = `${dateStamp}/${region}/${service}/aws4_request`;
-          const stringToSign = [
-            algorithm,
-            amzDate,
-            credentialScope,
-            await sha256Hex(canonicalRequest)
-          ].join('\n');
-
-          const signingKey = await getSignatureKey(env.R2_SECRET_ACCESS_KEY, dateStamp, region, service);
-          const signature = await hmacHex(signingKey, stringToSign);
-
-          const authorizationHeader = `${algorithm} Credential=${env.R2_ACCESS_KEY_ID}/${credentialScope}, SignedHeaders=${signedHeaders}, Signature=${signature}`;
-
-          // R2에 PUT 요청
-          const r2Response = await fetch(`${r2Endpoint}${canonicalUri}`, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': contentType,
-              'x-amz-content-sha256': payloadHash,
-              'x-amz-date': amzDate,
-              'Authorization': authorizationHeader
-            },
-            body: arrayBuffer
+          await env.BUCKET.put(fileName, arrayBuffer, {
+            httpMetadata: {
+              contentType: contentType
+            }
           });
 
-          if (!r2Response.ok) {
-            const errorText = await r2Response.text();
-            throw new Error(`R2 upload failed: ${r2Response.status} - ${errorText}`);
-          }
-
-          // 공개 URL (R2 공개 도메인)
-          const publicUrl = `https://pub-a042ac0503284c5d8ed82f5ea918f615.r2.dev/${fileName}`;
+          // R2 공개 URL
+          const publicUrl = `https://pub-1872e954c9da49929650d78642a05e08.r2.dev/${fileName}`;
 
           console.log('✅ Image uploaded:', fileName);
 

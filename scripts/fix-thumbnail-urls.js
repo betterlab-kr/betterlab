@@ -4,7 +4,7 @@ const BASE_ID = 'appwr3xRqHrc3z0zQ';
 const TABLE_NAME = 'board';
 
 const OLD_BUCKET = 'pub-bf39e5c4b6ef41af31941676cc384300.r2.dev';
-const NEW_BUCKET = 'pub-a042ac0503284c5d8ed82f5ea918f615.r2.dev';
+const NEW_BUCKET = 'pub-1872e954c9da49929650d78642a05e08.r2.dev';
 
 async function fixThumbnailUrls() {
   console.log('📷 썸네일 URL 수정 시작...\n');

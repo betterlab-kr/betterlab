@@ -19,6 +19,7 @@ const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
 const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
 const CF_ACCOUNT_ID = '11fb32b3efbcb8f3de0a2dff940797a5';
 const R2_BUCKET = 'betterlab';
+const R2_PUBLIC_URL_HASH = '1872e954c9da49929650d78642a05e08'; // R2 Public URL 해시 (Account ID와 다름)
 const R2_ACCESS_KEY = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
 const R2_SECRET_KEY = process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
 
@@ -133,7 +134,7 @@ async function uploadToR2(buffer, filename) {
   }));
 
   // Public URL (R2 버킷에 커스텀 도메인이나 public access 설정 필요)
-  return `https://pub-${CF_ACCOUNT_ID}.r2.dev/${key}`;
+  return `https://pub-${R2_PUBLIC_URL_HASH}.r2.dev/${key}`;
 }
 
 /**

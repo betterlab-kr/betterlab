@@ -344,10 +344,10 @@
         <!-- 탭 메뉴 -->
         <div class="board-tabs">
           <button class="board-tab active" data-category="전체">전체</button>
-          <button class="board-tab" data-category="공지">공지</button>
-          <button class="board-tab" data-category="뉴스">뉴스</button>
-          <button class="board-tab" data-category="정보">정보</button>
-          <button class="board-tab" data-category="성공사례">성공사례</button>
+          <button class="board-tab" data-category="공지사항">공지사항</button>
+          <button class="board-tab" data-category="정책자금">정책자금</button>
+          <button class="board-tab" data-category="마케팅소식">마케팅소식</button>
+          <button class="board-tab" data-category="기업지원">기업지원</button>
         </div>
 
         <!-- 헤더 -->
@@ -782,10 +782,10 @@
     // 카테고리 스타일
     function getCategoryClass(category) {
       const classes = {
-        '공지': 'complete',
-        '뉴스': 'pending',
-        '정보': 'progress',
-        '성공사례': 'complete'
+        '공지사항': 'complete',
+        '정책자금': 'progress',
+        '마케팅소식': 'pending',
+        '기업지원': 'complete'
       };
       return classes[category] || '';
     }

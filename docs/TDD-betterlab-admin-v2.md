@@ -42,12 +42,18 @@
 | title | 제목 | Single line text | 게시글 제목 |
 | content | 내용 | Long text | HTML 또는 Markdown |
 | summary | 요약 | Single line text | 목록 표시용 (100자) |
-| category | 카테고리 | Single select | 정책자금, 지원사업, 공지사항 |
+| category | 카테고리 | Single select | 공지사항, 정책자금, 마케팅소식, 기업지원 |
 | thumbnailUrl | 썸네일URL | URL | R2 이미지 URL |
 | tags | 태그 | Single line text | 쉼표 구분 |
 | date | 작성일 | Date | YYYY-MM-DD |
 | views | 조회수 | Number | 기본값 0 |
 | isPublic | 게시여부 | Checkbox | 공개/비공개 |
+
+**Airtable 테이블 생성 방법**:
+1. Airtable 대시보드에서 "더나은기업연구소" Base 접속
+2. `+ Add a table` → 테이블 이름: `board`
+3. 위 필드들을 하나씩 추가 (타입 주의)
+4. category 필드: Single select → 옵션 추가 (공지사항, 정책자금, 마케팅소식, 기업지원)
 
 ### 2.2 분석 데이터 테이블 (analytics_daily)
 
@@ -267,17 +273,16 @@ export default {
 ## 8. 작업 순서
 
 1. ✅ 요구사항 정리 및 TDD 작성
-2. ⏳ 대시보드 최근접수내역 오류 수정
-3. ⏳ 접수내역 삭제 로직 검증
-4. ⏳ Airtable 게시판 테이블 구조 설계 및 생성
-5. ⏳ 게시판 API - Airtable 연동 수정
+2. ✅ 대시보드 최근접수내역 오류 수정 (필드명 한글→영문)
+3. ✅ 접수내역 삭제 로직 검증 (정상 작동 확인)
+4. ✅ Airtable 게시판 테이블 구조 설계 (board 테이블 스키마 정의)
+5. ⏳ 게시판 API - Airtable 연동 검증
 6. ⏳ 게시판 이미지 업로드 기능 (R2)
-7. ⏳ k-eai.kr 게시글 구조 분석
-8. ⏳ 예시 게시글 6개 작성
-9. ⏳ 방문통계 기간필터 오류 수정
-10. ⏳ 방문통계 Airtable 캐시 구조 설계
-11. ⏳ GA4 데이터 자동 백필 설정
-12. ⏳ 전체 테스트 및 배포
+7. ⏳ 예시 게시글 6개 작성
+8. ⏳ 방문통계 기간필터 오류 수정
+9. ⏳ 방문통계 Airtable 캐시 구조 설계
+10. ⏳ GA4 데이터 자동 백필 설정
+11. ⏳ 전체 테스트 및 배포
 
 ---
 

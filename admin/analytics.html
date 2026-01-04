@@ -1753,7 +1753,7 @@
       }
       const btn = document.querySelector('.refresh-btn');
       btn.classList.add('loading');
-      loadAnalyticsData().finally(() => {
+      loadAllDataWithFilter().finally(() => {
         btn.classList.remove('loading');
       });
     }
