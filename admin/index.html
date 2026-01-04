@@ -383,8 +383,8 @@
         if (leadsData.success && leadsData.leads) {
           const leads = leadsData.leads;
           const total = leads.length;
-          const pending = leads.filter(l => l.상태 === '신규').length;
-          const completed = leads.filter(l => l.상태 === '완료').length;
+          const pending = leads.filter(l => l.Status === '신규' || !l.Status).length;
+          const completed = leads.filter(l => l.Status === '완료').length;
 
           document.getElementById('totalLeads').textContent = total;
           document.getElementById('totalLeadsChange').textContent = '전체 접수';
@@ -432,12 +432,12 @@
 
           tbody.innerHTML = recentLeads.map(lead => `
             <tr>
-              <td data-label="접수일">${lead.createdTime ? lead.createdTime.split('T')[0] : '-'}</td>
-              <td data-label="기업명">${lead.기업명 || '-'}</td>
-              <td data-label="대표자">${lead.대표자명 || '-'}</td>
-              <td data-label="연락처">${lead.연락처 || '-'}</td>
-              <td data-label="필요자금">${lead.필요자금규모 || '-'}</td>
-              <td data-label="상태"><span class="status-badge ${getStatusClass(lead.상태)}">${lead.상태 || '신규'}</span></td>
+              <td data-label="접수일">${lead.Date || (lead.createdTime ? lead.createdTime.split('T')[0] : '-')}</td>
+              <td data-label="기업명">${lead.Company || '-'}</td>
+              <td data-label="대표자">${lead.Name || '-'}</td>
+              <td data-label="연락처">${lead.Phone || '-'}</td>
+              <td data-label="필요자금">${lead.Amount || '-'}</td>
+              <td data-label="상태"><span class="status-badge ${getStatusClass(lead.Status)}">${lead.Status || '신규'}</span></td>
             </tr>
           `).join('');
         } else {
