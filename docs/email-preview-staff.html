@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>담당자용 이메일 미리보기 - 더나은기업연구소</title>
+    <style>
+        body {
+            background: #f5f5f5;
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'Pretendard', -apple-system, sans-serif;
+        }
+        .preview-header {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            background: #DC2626;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .preview-header h1 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+        .preview-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .preview-meta {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #666;
+        }
+        .preview-meta strong { color: #333; }
+        .preview-meta .highlight { 
+            background: #FEF3C7; 
+            padding: 2px 6px; 
+            border-radius: 4px;
+            color: #92400E;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-header">
+        <h1>📬 담당자용 이메일 미리보기 (내부 수신)</h1>
+        <p>고객이 폼 제출 시 담당자에게 발송되는 알림 이메일입니다</p>
+    </div>
+    
+    <div class="preview-meta">
+        <strong>발신:</strong> 더나은기업연구소 &lt;noreply@mail.policy-fund.online&gt;<br>
+        <strong>수신 (TO):</strong> <span class="highlight">skai9@naver.com</span> (담당자)<br>
+        <strong>숨은참조 (BCC):</strong> <span class="highlight">mkt@polarad.co.kr</span><br>
+        <strong>제목:</strong> [신규무료진단] 테스트기업 주식회사 - 무료진단 신청
+    </div>
+
+    <!-- 실제 이메일 템플릿 -->
+    <div style="font-family: 'Pretendard', -apple-system, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: linear-gradient(135deg, #0C2E21 0%, #124330 100%); color: white; padding: 30px; border-radius: 10px 10px 0 0;">
+            <h2 style="margin: 0; font-size: 24px;">💰 더나은기업연구소 신규 무료진단 신청</h2>
+            <p style="margin: 10px 0 0 0; opacity: 0.95;">💻 홈페이지 접수</p>
+        </div>
+
+        <div style="background: white; padding: 30px; border: 1px solid #e0e0e0; border-top: none;">
+            <!-- 기업 정보 -->
+            <div style="background: linear-gradient(135deg, #E8F5EE 0%, #D4EBE0 100%); padding: 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #6BA88D;">
+                <h3 style="color: #000000; margin: 0 0 15px 0; font-size: 18px; border-bottom: 2px solid #6BA88D; padding-bottom: 8px; display: inline-block;">📋 기업 정보</h3>
+                <table style="width: 100%;">
+                    <tr><td style="padding: 8px 0; color: #4B5563; width: 40%; white-space: nowrap;">🏢 기업명</td><td style="font-weight: 600; color: #000000;">테스트기업 주식회사</td></tr>
+                    <tr><td style="padding: 8px 0; color: #4B5563; white-space: nowrap;">📄 사업자번호</td><td>123-45-67890</td></tr>
+                    <tr><td style="padding: 8px 0; color: #4B5563; white-space: nowrap;">📍 지역</td><td>서울</td></tr>
+                    <tr><td style="padding: 8px 0; color: #4B5563; white-space: nowrap;">🏭 업종</td><td>IT/소프트웨어</td></tr>
+                    <tr><td style="padding: 8px 0; color: #4B5563; white-space: nowrap;">📅 설립연도</td><td>2020년</td></tr>
+                    <tr><td style="padding: 8px 0; color: #4B5563; white-space: nowrap;">📊 전년도매출</td><td>5억 이상 ~ 10억 미만</td></tr>
+                </table>
+            </div>
+
+            <!-- 담당자 정보 -->
+            <div style="background: linear-gradient(135deg, #E8F5EE 0%, #D4EBE0 100%); padding: 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #6BA88D;">
+                <h3 style="color: #000000; margin: 0 0 15px 0; font-size: 18px; border-bottom: 2px solid #6BA88D; padding-bottom: 8px; display: inline-block;">👤 담당자 정보</h3>
+                <table style="width: 100%;">
+                    <tr><td style="padding: 8px 0; color: #4B5563; width: 40%; white-space: nowrap;">👤 이름</td><td>홍길동</td></tr>
+                    <tr><td style="padding: 8px 0; color: #4B5563; white-space: nowrap;">📞 연락처</td><td style="color: #000000; font-weight: 600;">010-1234-5678</td></tr>
+                    <tr><td style="padding: 8px 0; color: #4B5563; white-space: nowrap;">✉️ 이메일</td><td>test@example.com</td></tr>
+                    <tr><td style="padding: 8px 0; color: #4B5563; white-space: nowrap;">⏰ 연락시간</td><td style="color: #6BA88D; font-weight: 600;">오전 (09:00~12:00)</td></tr>
+                </table>
+            </div>
+
+            <!-- 자금 정보 -->
+            <div style="background: linear-gradient(135deg, #0C2E21 0%, #124330 100%); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                <h3 style="color: white; margin: 0 0 15px 0; font-size: 18px;">💰 자금 정보</h3>
+                <table style="width: 100%; color: white;">
+                    <tr><td style="padding: 8px 0; color: #8FBFA8; width: 40%; white-space: nowrap;">💵 희망자금</td><td style="color: #D4EBE0; font-weight: 700; font-size: 16px;">3억 ~ 5억</td></tr>
+                    <tr><td style="padding: 8px 0; color: #8FBFA8; white-space: nowrap;">🔖 자금종류</td><td><strong>창업자금, 운전자금</strong></td></tr>
+                </table>
+            </div>
+
+            <!-- 문의내용 -->
+            <div style="background: linear-gradient(135deg, #E8F5EE, #D4EBE0); padding: 20px; border-radius: 8px; border-left: 4px solid #6BA88D; margin-bottom: 20px;">
+                <h3 style="color: #000000; margin: 0 0 10px 0; font-size: 16px;">📝 문의내용</h3>
+                <p style="margin: 0; color: #4B5563; white-space: pre-wrap;">정책자금 상담을 요청드립니다.
+창업 초기 기업으로 운전자금이 필요합니다.
+자세한 상담 부탁드립니다.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #0C2E21 0%, #124330 100%); border-radius: 0 0 10px 10px; color: white; font-size: 12px;">
+            <p style="margin: 0; font-weight: 600;">더나은기업연구소 | 010-3558-4305</p>
+            <p style="margin: 5px 0 0 0; opacity: 0.9; font-size: 11px;">※ 홈페이지에서 자동 발송되었습니다.</p>
+        </div>
+    </div>
+</body>
+</html>

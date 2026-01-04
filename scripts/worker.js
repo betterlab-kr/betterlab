@@ -2122,7 +2122,7 @@ export default {
       if (path === '/health') {
         return new Response(JSON.stringify({
           status: 'ok',
-          service: 'kpfc-api',
+          service: 'betterlab-api',
           version: '2.1.0',
           features: ['analytics', 'submit', 'leads', 'board', 'employees', 'popups', 'pages'],
           env_status: {
@@ -2179,8 +2179,8 @@ export default {
           const fileName = `board/${timestamp}-${randomStr}.${ext}`;
 
           // R2 S3 호환 API로 업로드
-          const accountId = 'bf39e5c4b6ef41af31941676cc384300';
-          const bucketName = 'kpfc';
+          const accountId = '11fb32b3efbcb8f3de0a2dff940797a5';
+          const bucketName = 'betterlab';
           const r2Endpoint = `https://${accountId}.r2.cloudflarestorage.com`;
 
           const arrayBuffer = await file.arrayBuffer();

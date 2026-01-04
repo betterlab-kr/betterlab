@@ -1,5 +1,5 @@
 // 더나은 기업연구소 관리자 인증 모듈
-const AUTH_KEY = 'kpfc_admin_auth';
+const AUTH_KEY = 'betterlab_admin_auth';
 const WORKER_URL = 'https://betterlab-analytics.skai8588.workers.dev';
 
 // 인증 상태 확인

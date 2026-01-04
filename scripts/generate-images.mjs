@@ -17,8 +17,8 @@ dotenv.config({ path: path.join(__dirname, '..', '.env') });
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
 const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-const CF_ACCOUNT_ID = 'bf39e5c4b6ef41af31941676cc384300';
-const R2_BUCKET = 'kpfc';
+const CF_ACCOUNT_ID = '11fb32b3efbcb8f3de0a2dff940797a5';
+const R2_BUCKET = 'betterlab';
 const R2_ACCESS_KEY = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
 const R2_SECRET_KEY = process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
 

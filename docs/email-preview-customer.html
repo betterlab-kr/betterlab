@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객용 이메일 미리보기 - 더나은기업연구소</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'Pretendard', -apple-system, sans-serif;
+        }
+        .preview-header {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        .preview-header h1 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+        .preview-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .preview-meta {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #666;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .preview-meta strong { color: #333; }
+    </style>
+</head>
+<body>
+    <div class="preview-header">
+        <h1>📧 고객용 이메일 미리보기</h1>
+        <p>고객이 폼 제출 후 받는 확인 이메일입니다</p>
+    </div>
+    
+    <div class="preview-meta">
+        <strong>발신:</strong> 더나은기업연구소 &lt;noreply@mail.policy-fund.online&gt;<br>
+        <strong>수신:</strong> 고객 이메일 (폼에서 입력한 이메일)<br>
+        <strong>제목:</strong> [더나은기업연구소] 무료진단 신청이 접수되었습니다
+    </div>
+
+    <!-- 실제 이메일 템플릿 -->
+    <div style="font-family: 'Pretendard', -apple-system, sans-serif; max-width: 600px; margin: 0 auto;">
+        <!-- 헤더 -->
+        <div style="background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%); color: white; padding: 35px 30px; border-radius: 16px 16px 0 0; text-align: center;">
+            <div style="font-size: 48px; margin-bottom: 15px;">✅</div>
+            <h2 style="margin: 0; font-size: 22px; font-weight: 700;">무료진단 신청이 접수되었습니다</h2>
+            <p style="margin: 12px 0 0 0; opacity: 0.95; font-size: 14px; font-weight: 500;">더나은기업연구소 정책자금 전문상담</p>
+        </div>
+
+        <!-- 본문 -->
+        <div style="background: white; padding: 35px 30px; border: 1px solid #e5e7eb; border-top: none;">
+            <!-- 인사말 -->
+            <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 24px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #10b981;">
+                <p style="margin: 0 0 12px 0; font-size: 16px; color: #064e3b;">안녕하세요, <strong style="color: #059669;">홍길동</strong>님! 👋</p>
+                <p style="margin: 0; color: #065f46; line-height: 1.8; font-size: 14px;">정책자금 심사신청이 정상적으로<br>접수되었습니다.<br><br>영업일기준 24시간 이내<br>담당 기업심사관이 연락드리겠습니다.</p>
+            </div>
+
+            <!-- 접수 내용 카드 -->
+            <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 24px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);">
+                <h3 style="color: white; margin: 0 0 18px 0; font-size: 16px; font-weight: 600;">📋 접수 내용</h3>
+                <table style="width: 100%; color: white; font-size: 12px; border-collapse: separate; border-spacing: 0 6px;">
+                    <tr>
+                        <td style="padding: 8px 12px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; width: 35%; white-space: nowrap;">🏢 기업명</td>
+                        <td style="padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">테스트기업 주식회사</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; white-space: nowrap;">📞 연락처</td>
+                        <td style="padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">010-1234-5678</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; white-space: nowrap;">💰 희망자금</td>
+                        <td style="padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">3억 ~ 5억</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; background: rgba(255,255,255,0.15); border-radius: 8px 0 0 8px; white-space: nowrap;">⏰ 연락시간</td>
+                        <td style="padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 0 8px 8px 0; font-weight: 600;">오전 (09:00~12:00)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 안내 박스 -->
+            <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 20px 24px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #10b981; text-align: center;">
+                <p style="margin: 0; color: #065f46; font-weight: 600; font-size: 15px; line-height: 1.7;">
+                    영업일기준 <strong style="color: #059669;">24시간 이내</strong>에<br>더나은기업연구소에서 연락드리겠습니다.
+                </p>
+            </div>
+
+            <!-- 추가 안내 -->
+            <div style="text-align: center; padding: 20px 0; border-top: 1px dashed #e5e7eb;">
+                <p style="margin: 0 0 15px 0; color: #6b7280; font-size: 13px;">문의사항이 있으시면 아래 연락처로 연락주세요</p>
+                <div style="display: inline-block; background: #f3f4f6; padding: 12px 24px; border-radius: 8px;">
+                    <span style="color: #374151; font-size: 14px;">📞 <strong>010-3558-4305</strong></span>
+                    <span style="color: #d1d5db; margin: 0 10px;">|</span>
+                    <span style="color: #374151; font-size: 14px;">✉️ <strong>skai9@naver.com</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 푸터 -->
+        <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); border-radius: 0 0 16px 16px; color: white;">
+            <p style="margin: 0 0 8px 0; font-weight: 700; font-size: 15px;">더나은기업연구소</p>
+            <p style="margin: 0 0 5px 0; opacity: 0.85; font-size: 13px;">중소기업 성장의 든든한 파트너</p>
+            <p style="margin: 15px 0 0 0; opacity: 0.7; font-size: 11px;">※ 본 메일은 발신 전용입니다.</p>
+        </div>
+    </div>
+</body>
+</html>
