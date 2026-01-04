@@ -3635,13 +3635,21 @@
     })();
 </script>
 
+<!-- 모바일 하단 네비게이션 바 스타일 -->
+<style>
+    .mobile-nav-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; height: 56px; background: linear-gradient(135deg, rgba(12, 46, 33, 0.95) 0%, rgba(12, 46, 33, 0.98) 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(143, 191, 168, 0.25); z-index: 9997; box-shadow: 0 -4px 20px rgba(12, 46, 33, 0.4); }
+    .mobile-nav-bar-inner { display: flex; align-items: center; justify-content: space-around; height: 100%; padding: 0 8px; }
+    .mobile-nav-bar a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-size: 13px; font-weight: 500; padding: 8px 6px; transition: all 0.2s ease; white-space: nowrap; letter-spacing: -0.3px; }
+    .mobile-nav-bar a:hover, .mobile-nav-bar a:active { color: #8FBFA8; }
+    @media (max-width: 768px) { .mobile-nav-bar { display: block; } body { padding-bottom: 56px; } }
+</style>
 <!-- Top 버튼 스타일 -->
 <style>
     .top-button { position: fixed; bottom: 30px; right: 30px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #6BA88D 0%, #0C2E21 100%); border: 2px solid rgba(107, 168, 141, 0.5); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 9998; box-shadow: 0 4px 20px rgba(107, 168, 141, 0.4); }
     .top-button svg { width: 24px; height: 24px; stroke: #fff; fill: none; }
     .top-button:hover { background: linear-gradient(135deg, #8FBFA8 0%, #6BA88D 100%); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(107, 168, 141, 0.5); }
     .top-button.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-    .top-bar-mobile { display: none; position: fixed; bottom: 0; left: 0; right: 0; height: 52px; background: linear-gradient(135deg, rgba(12, 46, 33, 0.92) 0%, rgba(107, 168, 141, 0.92) 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(143, 191, 168, 0.3); z-index: 9999; opacity: 0; visibility: hidden; transform: translateY(100%); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 -4px 20px rgba(12, 46, 33, 0.3); }
+    .top-bar-mobile { display: none; position: fixed; bottom: 56px; left: 0; right: 0; height: 52px; background: linear-gradient(135deg, rgba(12, 46, 33, 0.92) 0%, rgba(107, 168, 141, 0.92) 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(143, 191, 168, 0.3); z-index: 9999; opacity: 0; visibility: hidden; transform: translateY(100%); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 -4px 20px rgba(12, 46, 33, 0.3); }
     .top-bar-mobile.visible { opacity: 1; visibility: visible; transform: translateY(0); }
     .top-bar-mobile.minimized { height: 28px; background: linear-gradient(135deg, rgba(12, 46, 33, 0.75) 0%, rgba(107, 168, 141, 0.75) 100%); }
     .top-bar-mobile.minimized .top-bar-mobile-content { display: none; }
@@ -3658,6 +3666,15 @@
     .top-bar-mobile-mini svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.8); fill: none; stroke-width: 2.5; }
     @media (max-width: 768px) { .top-button { display: none !important; } .top-bar-mobile { display: block; } }
 </style>
+<!-- 모바일 하단 네비게이션 바 (회사소개 제외) -->
+<nav class="mobile-nav-bar" aria-label="모바일 메뉴">
+    <div class="mobile-nav-bar-inner">
+        <a href="index.html">홈</a>
+        <a href="process.html">진행절차</a>
+        <a href="fund.html">정책자금</a>
+        <a href="service.html">서비스</a>
+    </div>
+</nav>
 <button id="topButton" class="top-button" aria-label="맨 위로"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
 <div id="topBarMobile" class="top-bar-mobile"><div class="top-bar-mobile-content"><button id="topBarAction" class="top-bar-mobile-action"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg><span>맨 위로</span></button><button id="topBarToggle" class="top-bar-mobile-toggle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div><div id="topBarMini" class="top-bar-mobile-mini"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg><span>TOP</span></div></div>
 <script>

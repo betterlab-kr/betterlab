@@ -4292,6 +4292,50 @@ const API_BASE = 'https://betterlab-analytics.skai8588.workers.dev';
     })();
 </script>
 
+<!-- 모바일 하단 네비게이션 바 스타일 -->
+<style>
+    .mobile-nav-bar {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        background: linear-gradient(135deg, rgba(12, 46, 33, 0.95) 0%, rgba(12, 46, 33, 0.98) 100%);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(143, 191, 168, 0.25);
+        z-index: 9997;
+        box-shadow: 0 -4px 20px rgba(12, 46, 33, 0.4);
+    }
+    .mobile-nav-bar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+        padding: 0 8px;
+    }
+    .mobile-nav-bar a {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 8px 6px;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        letter-spacing: -0.3px;
+    }
+    .mobile-nav-bar a:hover,
+    .mobile-nav-bar a:active {
+        color: #8FBFA8;
+    }
+    @media (max-width: 768px) {
+        .mobile-nav-bar { display: block; }
+        /* 페이지 하단 여백 추가 (네비게이션 바에 가려지지 않도록) */
+        body { padding-bottom: 56px; }
+    }
+</style>
+
 <!-- Top 버튼 스타일 -->
 <style>
     /* 데스크톱: 원형 버튼 */
@@ -4325,11 +4369,11 @@ const API_BASE = 'https://betterlab-analytics.skai8588.workers.dev';
     }
     .top-button.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    /* 모바일: 하단 바 */
+    /* 모바일: 하단 바 (Top 버튼) - 네비게이션 바 위에 위치 */
     .top-bar-mobile {
         display: none;
         position: fixed;
-        bottom: 0;
+        bottom: 56px; /* 네비게이션 바 높이만큼 위로 */
         left: 0;
         right: 0;
         height: 52px;
@@ -4443,6 +4487,16 @@ const API_BASE = 'https://betterlab-analytics.skai8588.workers.dev';
         .top-bar-mobile { display: block; }
     }
 </style>
+
+<!-- 모바일 하단 네비게이션 바 (홈 제외) -->
+<nav class="mobile-nav-bar" aria-label="모바일 메뉴">
+    <div class="mobile-nav-bar-inner">
+        <a href="about.html">회사소개</a>
+        <a href="process.html">진행절차</a>
+        <a href="fund.html">정책자금</a>
+        <a href="service.html">서비스</a>
+    </div>
+</nav>
 
 <!-- Top 버튼 (데스크톱) -->
 <button id="topButton" class="top-button" aria-label="맨 위로 이동" title="맨 위로">
