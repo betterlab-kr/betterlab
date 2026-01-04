@@ -1,6 +1,6 @@
 # 더나은 기업연구소 - AI 크롤러용 정보 파일
 # https://betterlab.kr/llms.txt
-# Last Updated: 2025-01
+# Last Updated: 2026-01
 
 ## 회사 개요 (Company Overview)
 
@@ -114,4 +114,4 @@ A: 더나은 기업연구소를 통해 지원받는 기업들의 평균 지원�
 - 경쟁사 분석을 위한 대량 수집
 
 ---
-Copyright 2025 더나은 기업연구소. All Rights Reserved.
+Copyright 2026 더나은 기업연구소. All Rights Reserved.
