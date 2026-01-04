@@ -700,6 +700,17 @@
       renderPosts();
     }
 
+    // 썸네일 URL 변환 (상대 경로 → 절대 경로)
+    function getThumbnailUrl(url) {
+      if (!url) return '';
+      // 이미 절대 경로면 그대로 반환
+      if (url.startsWith('http://') || url.startsWith('https://')) {
+        return url;
+      }
+      // 상대 경로면 사이트 루트 기준으로 변환
+      return '/' + url.replace(/^\//, '');
+    }
+
     // 게시글 렌더링
     function renderPosts() {
       const tbody = document.getElementById('boardTableBody');
@@ -719,12 +730,14 @@
         return;
       }
 
-      tbody.innerHTML = pageData.map((post, idx) => `
+      tbody.innerHTML = pageData.map((post, idx) => {
+        const thumbUrl = getThumbnailUrl(post.썸네일URL);
+        return `
         <tr>
           <td>
-            ${post.썸네일URL
-              ? `<img src="${post.썸네일URL}" alt="" class="thumbnail-preview thumbnail-clickable"
-                     onclick="openImagePreview('${post.썸네일URL}', '${(post.제목 || '').replace(/'/g, "\\'")}');"
+            ${thumbUrl
+              ? `<img src="${thumbUrl}" alt="" class="thumbnail-preview thumbnail-clickable"
+                     onclick="openImagePreview('${thumbUrl}', '${(post.제목 || '').replace(/'/g, "\\'")}');"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                      title="클릭하여 크게 보기">
                  <div class="thumbnail-placeholder" style="display:none;">
@@ -769,7 +782,8 @@
             </button>
           </td>
         </tr>
-      `).join('');
+      `;
+      }).join('');
 
       // 페이지네이션 업데이트
       const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
