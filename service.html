@@ -2745,5 +2745,34 @@
     })();
 </script>
 
+<!-- Top 버튼 스타일 -->
+<style>
+    .top-button { position: fixed; bottom: 30px; right: 30px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #6BA88D 0%, #0C2E21 100%); border: 2px solid rgba(107, 168, 141, 0.5); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 9998; box-shadow: 0 4px 20px rgba(107, 168, 141, 0.4); }
+    .top-button svg { width: 24px; height: 24px; stroke: #fff; fill: none; }
+    .top-button:hover { background: linear-gradient(135deg, #8FBFA8 0%, #6BA88D 100%); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(107, 168, 141, 0.5); }
+    .top-button.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .top-bar-mobile { display: none; position: fixed; bottom: 0; left: 0; right: 0; height: 52px; background: linear-gradient(135deg, rgba(12, 46, 33, 0.92) 0%, rgba(107, 168, 141, 0.92) 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(143, 191, 168, 0.3); z-index: 9999; opacity: 0; visibility: hidden; transform: translateY(100%); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 -4px 20px rgba(12, 46, 33, 0.3); }
+    .top-bar-mobile.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .top-bar-mobile.minimized { height: 28px; background: linear-gradient(135deg, rgba(12, 46, 33, 0.75) 0%, rgba(107, 168, 141, 0.75) 100%); }
+    .top-bar-mobile.minimized .top-bar-mobile-content { display: none; }
+    .top-bar-mobile.minimized .top-bar-mobile-mini { display: flex; }
+    .top-bar-mobile.scrolling { background: linear-gradient(135deg, rgba(12, 46, 33, 0.5) 0%, rgba(107, 168, 141, 0.5) 100%); box-shadow: none; }
+    .top-bar-mobile-content { display: flex; align-items: center; justify-content: space-between; height: 100%; padding: 0 16px; }
+    .top-bar-mobile-action { display: flex; align-items: center; gap: 10px; background: none; border: none; color: #fff; cursor: pointer; padding: 10px 16px; border-radius: 24px; transition: all 0.25s ease; font-size: 14px; font-weight: 600; }
+    .top-bar-mobile-action:active { background: rgba(143, 191, 168, 0.25); transform: scale(0.97); }
+    .top-bar-mobile-action svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2.5; }
+    .top-bar-mobile-toggle { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; cursor: pointer; transition: all 0.25s ease; }
+    .top-bar-mobile-toggle:active { background: rgba(255, 255, 255, 0.25); transform: scale(0.92); }
+    .top-bar-mobile-toggle svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2.5; }
+    .top-bar-mobile-mini { display: none; align-items: center; justify-content: center; height: 100%; width: 100%; cursor: pointer; gap: 6px; color: rgba(255,255,255,0.8); font-size: 12px; font-weight: 500; }
+    .top-bar-mobile-mini svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.8); fill: none; stroke-width: 2.5; }
+    @media (max-width: 768px) { .top-button { display: none !important; } .top-bar-mobile { display: block; } }
+</style>
+<button id="topButton" class="top-button" aria-label="맨 위로"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+<div id="topBarMobile" class="top-bar-mobile"><div class="top-bar-mobile-content"><button id="topBarAction" class="top-bar-mobile-action"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg><span>맨 위로</span></button><button id="topBarToggle" class="top-bar-mobile-toggle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div><div id="topBarMini" class="top-bar-mobile-mini"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg><span>TOP</span></div></div>
+<script>
+(function(){var topButton=document.getElementById('topButton'),topBarMobile=document.getElementById('topBarMobile'),topBarAction=document.getElementById('topBarAction'),topBarToggle=document.getElementById('topBarToggle'),topBarMini=document.getElementById('topBarMini');if(!topButton||!topBarMobile)return;var isMinimized=sessionStorage.getItem('topBarMinimized')==='true',ticking=false,scrollTimeout=null;function updateTopButton(){var scrollY=window.scrollY,shouldShow=scrollY>400;if(shouldShow){topButton.classList.add('visible')}else{topButton.classList.remove('visible')}if(window.innerWidth<=768){if(shouldShow){topBarMobile.classList.add('visible')}else{topBarMobile.classList.remove('visible')}}ticking=false}function handleScroll(){if(!ticking){window.requestAnimationFrame(updateTopButton);ticking=true}topBarMobile.classList.add('scrolling');clearTimeout(scrollTimeout);scrollTimeout=setTimeout(function(){topBarMobile.classList.remove('scrolling')},150)}window.addEventListener('scroll',handleScroll);topButton.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});if(topBarAction){topBarAction.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})}if(topBarToggle){topBarToggle.addEventListener('click',function(){isMinimized=true;topBarMobile.classList.add('minimized');sessionStorage.setItem('topBarMinimized','true')})}if(topBarMini){topBarMini.addEventListener('click',function(){isMinimized=false;topBarMobile.classList.remove('minimized');sessionStorage.setItem('topBarMinimized','false');window.scrollTo({top:0,behavior:'smooth'})})}if(isMinimized){topBarMobile.classList.add('minimized')}window.addEventListener('resize',function(){if(!ticking){window.requestAnimationFrame(updateTopButton);ticking=true}})})();
+</script>
+
 </body>
 </html>
