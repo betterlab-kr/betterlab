@@ -46,6 +46,24 @@
 ### 폰트
 - Pretendard (CDN)
 
+## Google Analytics (GA4)
+
+| 항목 | 값 |
+|------|-----|
+| **스트림 이름** | betterlab |
+| **스트림 URL** | https://betterlab.kr |
+| **스트림 ID** | 13238940960 |
+| **측정 ID** | G-HMB8B4VCLK |
+
+## Cloudflare
+
+| 항목 | 값 |
+|------|-----|
+| **Account ID** | 11fb32b3efbcb8f3de0a2dff940797a5 |
+| **R2 Bucket** | betterlab |
+| **R2 Public URL** | https://pub-1872e954c9da49929650d78642a05e08.r2.dev |
+| **Worker** | betterlab-analytics.skai8588.workers.dev |
+
 ---
 
-*최종 수정: 2025-01-03*
+*최종 수정: 2026-01-04*
