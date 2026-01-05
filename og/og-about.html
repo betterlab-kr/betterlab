@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200, height=630">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { width: 1200px; height: 630px; font-family: 'Pretendard', -apple-system, sans-serif; overflow: hidden; }
+        .og-card { width: 1200px; height: 630px; background: linear-gradient(135deg, #124330 0%, #1A5C42 50%, #0C2E21 100%); display: flex; position: relative; overflow: hidden; }
+        .og-card::before { content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(107,168,141,0.15) 0%, transparent 70%); border-radius: 50%; }
+        .og-card::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(221,235,198,0.08) 0%, transparent 70%); border-radius: 50%; }
+        .og-content { flex: 1; padding: 60px 80px; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+        .og-logo { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; }
+        .og-logo-img { height: 56px; width: auto; }
+        .og-logo-text { color: white; font-size: 32px; font-weight: 700; letter-spacing: -0.02em; }
+        .og-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(221,235,198,0.2); backdrop-filter: blur(10px); padding: 12px 24px; border-radius: 30px; color: #DDEBC6; font-size: 17px; font-weight: 600; margin-bottom: 28px; width: fit-content; border: 1px solid rgba(221,235,198,0.3); }
+        .og-badge svg { width: 20px; height: 20px; fill: #DDEBC6; }
+        .og-title { color: white; font-size: 56px; font-weight: 800; line-height: 1.25; letter-spacing: -0.03em; margin-bottom: 24px; }
+        .og-title span { color: #8FBFA8; }
+        .og-description { color: rgba(255,255,255,0.85); font-size: 24px; font-weight: 400; line-height: 1.6; }
+        .og-icon-area { width: 420px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+        .og-icon-circle { width: 300px; height: 300px; background: rgba(107,168,141,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(20px); border: 1px solid rgba(143,191,168,0.3); }
+        .og-icon-circle svg { width: 130px; height: 130px; fill: white; }
+        .og-footer { position: absolute; bottom: 32px; left: 80px; color: rgba(255,255,255,0.5); font-size: 18px; font-weight: 500; z-index: 1; }
+    </style>
+</head>
+<body>
+    <div class="og-card">
+        <div class="og-content">
+            <div class="og-logo">
+                <img src="logo-white.png" alt="더나은기업연구소" class="og-logo-img">
+                <span class="og-logo-text">더나은기업연구소</span>
+            </div>
+            <div class="og-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                <span>회사소개</span>
+            </div>
+            <h1 class="og-title">
+                회사소개<br>
+                <span>든든한 파트너</span>
+            </h1>
+            <p class="og-description">
+                중소기업 성장의 든든한 파트너<br>
+                더나은기업연구소
+            </p>
+        </div>
+        <div class="og-icon-area">
+            <div class="og-icon-circle">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                </svg>
+            </div>
+        </div>
+        <div class="og-footer">betterlab.kr/about</div>
+    </div>
+</body>
+</html>
