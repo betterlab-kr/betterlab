@@ -46,7 +46,7 @@
 ### 1.5 정보 카드 (6개로 세분화)
 | ID | 텍스트 |
 |----|--------|
-| `index-hero-info1-title` | 기업심사관 전문가 |
+| `index-hero-info1-title` | 자금확보 전문가 |
 | `index-hero-info1-desc-1` | 정책자금 심사기준 정밀 분석 |
 | `index-hero-info1-desc-2` | 맞춤형 사업계획서 작성 지원 |
 | `index-hero-info2-title` | 1:1 맞춤 컨설팅 |
